@@ -14,7 +14,7 @@ root.geometry("400x300")
 
 my_money = 100000
 # 장바구니 등록
-def btn_check(cnt, text, price):
+def btn_check(text, price):
     # print(btn_drink1['text'])
     # label1_drink1 = Label(frame_bag, text=Text).grid(row=1, column=1)
     # label1_price1 = Label(frame_bag, text=price).grid(row=2, column=1)
@@ -25,9 +25,6 @@ def btn_check(cnt, text, price):
         msgbox.showinfo("안내창", "{} 가 구매 되었습니다!".format(text))
         my_money -= price
         frame_my_money.config(text=my_money)
-        cnt += 1
-        print(cnt)
-        return cnt
 
 
 # 물품 카테고리
@@ -58,8 +55,8 @@ frame_my_money.pack()
 #음료 물품
 
 btn_drink1 = Button(frame_drink, text="사이다" , width=5, height=2)
-btn_drink1.config(command= lambda GetText=btn_drink1['text'] : btn_check(cnt_drink1, GetText, price_drink1))
-cnt_drink1 = 0
+btn_drink1.config(command= lambda GetText=btn_drink1['text'] : btn_check(GetText, price_drink1))
+
 
 btn_drink2 = Button(frame_drink, width=5, height=2, text="콜라")
 btn_drink2.config(command= lambda GetText=btn_drink2['text'] : btn_check(GetText,price_drink2))
